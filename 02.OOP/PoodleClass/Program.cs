@@ -1,6 +1,11 @@
 ﻿internal class Program
 {
-    class Dog
+        public interface IAnimal
+    {
+        void Eat();
+        void Sleep();
+    }
+    class Dog : IAnimal
     {
         protected int eyes, nose, mouth, ears;
         protected string kinds;
@@ -16,6 +21,14 @@
         public virtual void Bark()
         {
             Console.WriteLine("멍멍");
+        }
+        public void Eat()
+        {
+            Console.WriteLine($"{kinds} is eating.");
+        }
+        public void Sleep()
+        {
+            Console.WriteLine($"{kinds} is in sleep.");
         }
     }
     class Poodle : Dog
@@ -34,9 +47,12 @@
     {
         Dog a = new Dog();
         a.Bark();
-        Poodle pd = new Poodle();
-        pd.Bark();
-        a = new Poodle();
-        a.Bark();
+        a.Eat();
+        a.Sleep();
+        
+        // Poodle pd = new Poodle();
+        // pd.Bark();
+        // a = new Poodle();
+        // a.Bark();
     }
 }
