@@ -13,7 +13,7 @@
             kinds = "개";
             Console.WriteLine($"{kinds} Initialised: Eyes = {eyes}, Nose = {nose}, Mouth = {mouth}, Ears = {ears}");
         }
-        public void Bark()
+        public virtual void Bark()
         {
             Console.WriteLine("멍멍");
         }
@@ -25,13 +25,18 @@
             base.kinds = "푸들";
             Console.WriteLine($"{kinds} Initialised: Eyes = {eyes}, Nose = {nose}, Mouth = {mouth}, Ears = {ears}");
         }
-
+        public override void Bark()
+        {
+            Console.WriteLine("왈왈");
+        }
     }
     private static void Main(string[] args)
     {
         Dog a = new Dog();
         a.Bark();
         Poodle pd = new Poodle();
-
+        pd.Bark();
+        a = new Poodle();
+        a.Bark();
     }
 }
